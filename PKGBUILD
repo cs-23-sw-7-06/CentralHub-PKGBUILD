@@ -1,7 +1,7 @@
 # Maintainer: Mads Mogensen <mads256h at gmail dot com>
 
 pkgname=centralhub-git
-pkgver=9f3ac3b
+pkgver=8b53787
 pkgrel=1
 pkgdesc="Central hub stuff"
 arch=('x86_64' 'armv7h')
@@ -10,8 +10,8 @@ license=('gpl-3')
 depends=('dotnet-sdk' 'aspnet-runtime')
 source=("$pkgname::git+https://github.com/cs-23-sw-7-06/CentralHub.git" "centralhub-api.service" "centralhub-webui.service")
 sha256sums=('SKIP'
-            '925e4b9bcc51d512faf5f23596047ebcfb965aa9a9284e0ad08f0b7af48540b3'
-            'fe829b5b5ee35de4d967cfe0c923391d79e4931c80af36f2ef5026af8213a227')
+            '8d4343d2f9223f86b9b27f413f79432f8270320e822e56e4534111f6cfcfd0b7'
+            '038c33d924e6173fda32e99e2f8dde2d5c323ce04fd06a2fabaf90e4a3d856b5')
 
 pkgver() {
 	cd "$srcdir/$pkgname/"
