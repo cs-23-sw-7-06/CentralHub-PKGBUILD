@@ -10,8 +10,8 @@ license=('gpl-3')
 depends=('dotnet-sdk' 'aspnet-runtime')
 source=("$pkgname::git+https://github.com/cs-23-sw-7-06/CentralHub.git" "centralhub-api.service" "centralhub-webui.service")
 sha256sums=('SKIP'
-            '7ba87e257f199de375913e2553cbd95599522a8876cda696a81c70d2547f5629'
-            '05b16c5915f0f5ae2e84de4d4e3e948244aa1a12a3463a67e5d6b569e5f75c6c')
+            '8b698d9e02ce7be6df7cd59a2b0d1da90911c9b2ccf73d4f06dd87a9aa9beb9e'
+            '1aaf0d570e37b6002db44ab9c138804ef46cd0b06f2fd19035f1dcbf05d33be7')
 
 pkgver() {
 	cd "$srcdir/$pkgname/"
