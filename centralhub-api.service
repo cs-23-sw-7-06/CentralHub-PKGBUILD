@@ -4,12 +4,12 @@ After=network.target
 Wants=network.target
 
 [Service]
+Type=notify
 ExecStart=/usr/bin/centralhub-api --urls http://0.0.0.0:8081
-WorkingDirectory=/opt/centralhub/api/
+WorkingDirectory=/usr/lib/centralhub-api/
 StateDirectory=centralhub-api
 Restart=always
 RestartSec=10
-KillSignal=SIGINT
 DynamicUser=yes
 CapabilityBoundingSet=
 SystemCallArchitectures=native
@@ -20,7 +20,9 @@ SystemCallFilter=~@mount
 SystemCallFilter=~@privileged
 SystemCallFilter=~@reboot
 SystemCallFilter=~@swap
-ProtectProc=invisible
+# We cannot do anything about this as we need to access the parent pid to check for systemd
+ProtectProc=default
+ProtectHome=yes
 PrivateDevices=yes
 PrivateUsers=yes
 ProtectHostname=yes
@@ -31,6 +33,8 @@ ProtectKernelLogs=yes
 ProtectControlGroups=yes
 RestrictAddressFamilies=AF_INET
 RestrictAddressFamilies=AF_INET6
+# Used for systemd integration
+RestrictAddressFamilies=AF_UNIX
 RestrictNamespaces=yes
 LockPersonality=yes
 RestrictRealtime=yes
