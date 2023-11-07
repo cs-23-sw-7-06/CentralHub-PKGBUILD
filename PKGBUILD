@@ -14,12 +14,6 @@ sha256sums=('SKIP'
             'a3b87d395f8ca30aa684a24a2a6f6557a815eab4a175fd75c444124687cad021'
             'a1dae7b241594e73c22009a05ab545472e461a38ec235ce485850981fca9618e')
 
-if [[ $CARCH == 'x86_64' ]]; then
-  _arch='x64'
-elif [[ $CARCH == 'armv7h' ]]; then
-  _arch='arm'
-fi
-
 pkgver() {
   cd "$srcdir/$pkgname/"
   git rev-parse --short HEAD
@@ -35,10 +29,10 @@ build() {
   dotnet restore
 
 # Build CentralHub.Api
-  dotnet publish CentralHub.Api -c "Release" -o "${srcdir}/api/" --self-contained false --runtime "linux-$_arch" -p:DebugSymbols=false -p:DebugType=none
+  dotnet publish CentralHub.Api -c "Release" -o "${srcdir}/api/" --self-contained false -p:DebugSymbols=false -p:DebugType=none
 
 # Build CentralHub.WebUI
-  dotnet publish CentralHub.WebUI -c "Release" -o "${srcdir}/webui/" --self-contained false --runtime "linux-$_arch" -p:DebugSymbols=false -p:DebugType=none
+  dotnet publish CentralHub.WebUI -c "Release" -o "${srcdir}/webui/" --self-contained false -p:DebugSymbols=false -p:DebugType=none
 }
 
 check() {
